@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novel Aesthetic</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        /* ======================================= */
+        /* ⚡ VARIABEL TEMA BAB 4: KEJUTAN DAN KONFLIK (Electric Yellow/Lime) */
+        /* ======================================= */
+        :root {
+            /* Warna Dasar Bab 4 (Tema Kejutan/Jolt) */
+            --bg-main: linear-gradient(135deg, #222222 0%, #333333 100%); /* Dark Grey/Black Backdrop */
+            --bg-card: #ffffff;
+            --bg-header: #333333; /* Dark header */
+            --color-text: #f0f0f0; /* Light text for dark background */
+            --color-heading: #ccff00; /* Electric Lime/Jolt Color */
+            --color-link: #ccff00;
+            --color-link-hover: #ff9900; /* Bright Orange Accent */
+            --color-author: #aaaaaa;
+            --shadow-color: rgba(0, 0, 0, 0.4); 
+            --btn-toggle-bg: #ccff00; 
+            --btn-toggle-text: black;
+            --btn-read-bg: #ff9900; /* Orange Button */
+            --btn-read-bg-hover: #ffcc00;
+            --hero-bg-color: #333333;
+            
+            /* VARIABEL UNTUK EFEK BUKU TULIS (NOVEL) */
+            --novel-bg-image: url('https://www.transparenttextures.com/patterns/notebook-dark.png'); 
+            --novel-bg-color: #1a1a1a; /* Sangat gelap */
+            
+            /* VARIABEL UNTUK PUNGGUNG BUKU (INDEX CARD) */
+            --book-spine-light: #444444; 
+            --book-spine-text: #ccff00; 
+            
+            /* VARIABEL UNTUK FITUR BARU */
+            --separator-color: #ff9900; /* Orange Separator */
+            --share-btn-bg: #ccff00; /* Electric Lime */
+        }
+
+        .dark-mode {
+            /* Untuk Bab 4, Dark Mode mirip dengan Light Mode karena temanya memang gelap */
+            --bg-main: linear-gradient(135deg, #000000 0%, #111111 100%); 
+            --bg-card: #151515; 
+            --bg-header: #111111; 
+            --color-text: #ffffff; 
+            --color-heading: #00ff7f; /* Neon Green */
+            --color-link: #e0e0e0;
+            --color-link-hover: #00ff7f;
+            --color-author: #999999;
+            --shadow-color: rgba(0, 0, 0, 0.9);
+            --btn-toggle-bg: #00ff7f;
+            --btn-toggle-text: #121212;
+            --btn-read-bg: #00ff7f;
+            --btn-read-bg-hover: #00b359;
+
+            /* VARIABEL UNTUK EFEK BUKU TULIS (NOVEL) */
+            --novel-bg-image: url('https://www.transparenttextures.com/patterns/patterns/notebook-dark.png'); 
+            --novel-bg-color: #0d0d0d; 
+            
+            /* VARIABEL UNTUK PUNGGUNG BUKU (INDEX CARD) */
+            --book-spine-light: #303030; 
+            --book-spine-text: #cfc4a5; 
+            
+            /* VARIABEL UNTUK FITUR BARU */
+            --separator-color: #3d3d3d; 
+            --share-btn-bg: #00ff7f; 
+        }
+
+        /* ======================================= */
+        /* 🎨 STYLE UMUM DAN RESET (Konsisten) */
+        /* ======================================= */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Georgia', serif; 
+        }
+
+        body, header, .novel-card, .btn-theme-toggle, .hero-section, .reading-area, .chapter-nav-bar, .profile-card, .floating-btn {
+            transition: 0.5s background-color, 0.5s color, 0.5s box-shadow, 0.5s border-color, 0.5s transform;
+        }
+
+        body {
+            background: var(--bg-main);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite, fadeIn 0.8s ease-out; 
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        h2 {
+            color: var(--color-heading);
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 400;
+        }
+
+        /* ======================================= */
+        /* 🧭 HEADER DAN NAVIGASI */
+        /* ======================================= */
+        .navbar-custom {
+            background-color: var(--bg-header) !important;
+            box-shadow: 0 4px 8px var(--shadow-color) !important;
+            padding: 15px 20px;
+            position: sticky; 
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar-custom .navbar-brand {
+            color: white !important;
+            font-size: 1.8em;
+            letter-spacing: 2px;
+        }
+
+        .navbar-custom .nav-link {
+            color: var(--color-link) !important;
+            transition: color 0.3s;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: var(--color-link-hover) !important;
+        }
+
+        .btn-theme-toggle {
+            background-color: var(--btn-toggle-bg);
+            color: var(--btn-toggle-text);
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            white-space: nowrap; 
+        }
+
+        /* ======================================= */
+        /* 📖 AREA BACA NOVEL (EFEK BUKU TULIS) */
+        /* ======================================= */
+        .reading-area {
+            background-image: var(--novel-bg-image);
+            background-color: var(--novel-bg-color); 
+            background-blend-mode: multiply; 
+            color: var(--color-text); 
+            max-width: 800px; 
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 8px; 
+            box-shadow: 0 10px 30px var(--shadow-color);
+            line-height: 1.8; 
+            font-size: 1.15em; 
+            border: 1px solid var(--separator-color);
+            transform: rotateZ(-0.1deg); 
+        }
+
+        .reading-area h1 {
+            color: var(--color-heading);
+            font-size: 2.8em;
+            text-align: center;
+        }
+        .reading-area .author {
+            color: var(--color-author);
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .chapter-title {
+            color: var(--color-heading);
+            font-size: 1.8em;
+            text-align: center;
+            margin: 30px 0;
+            border-bottom: 2px solid var(--separator-color);
+            padding-bottom: 10px;
+        }
+
+        /* Navigasi Bab di bawah */
+        .chapter-nav-bar {
+            background-color: var(--bg-header);
+            box-shadow: 0 -4px 15px var(--shadow-color); 
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .chapter-nav-bar .nav-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background-color: var(--btn-read-bg);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .chapter-nav-bar .nav-link-btn:hover {
+            background-color: var(--btn-read-bg-hover);
+            transform: translateY(-1px);
+        }
+
+        .chapter-nav-bar .disabled {
+            background-color: var(--color-author) !important; 
+            cursor: not-allowed;
+            opacity: 0.7;
+            transform: none;
+        }
+
+        /* ======================================= */
+        /* 🔗 TOMBOL SHARE NOVEL & Navigasi Cepat (Floating) */
+        /* ======================================= */
+        .floating-buttons-container {
+            position: fixed;
+            bottom: 120px; 
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .floating-btn {
+            background-color: var(--share-btn-bg);
+            color: black; /* Kontras tinggi untuk tombol share */
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        /* ======================================= */
+        /* 🦶 FOOTER */
+        /* ======================================= */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--bg-header);
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+    
+</head>
+<body id="top">
+    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbar-custom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"></a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"> Beranda</a>
+                        </li>
+    <a class="nav-link" href="daftar-bab.html">Daftar Bab</a>
+</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profil.html">Profil Penulis</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <button id="theme-toggle" class="btn btn-sm btn-theme-toggle" aria-label="Toggle dark and light theme">☀️ Mode Terang</button> 
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="reading-area">
+            
+            <h2>Bab 4: Rahasia Yang Menyengat</h2>
+            <p class="author">Oleh: Penulis D</p>
+            
+            <hr>
+
+            <h2 class="chapter-title"></h2>
+            
+            <p>Hari-hari setelah keputusan berat itu seperti gelombang yang terus menghantam pantai hati Aria. Ia merasa seolah berada di tengah badai yang tak berujung — di mana harapan dan keraguan bergumul tanpa henti.</p>
+
+            <p>Setelah pertemuan dramatis dengan Raka dan Reza, Aria memilih untuk mengunci hatinya sementara, berusaha memahami apa yang benar-benar ia inginkan. Namun kenyataan tak pernah mudah. Di antara bayang-bayang hujan yang terus mengguyur, ia menemukan dirinya terseret ke dalam pusaran konflik yang lebih rumit dari yang pernah dibayangkan.</p>
+
+            <p>Pagi itu, Aria menerima surat tanpa nama yang diselipkan di bawah pintu rumahnya. Surat itu hanya berisi beberapa kalimat singkat:</p>
+
+            <p>"Hati yang kau cari itu bukan hanya milikmu. Ada rahasia yang belum kau ketahui tentang Reza."</p>
+
+            <p>Jantung Aria berdegup kencang. Apa maksud surat itu? Mengapa ada orang yang ingin memperingatkan dia?</p>
+
+            <p>Ia mencoba menghubungi Reza, tapi ponselnya tak aktif. Kebingungan dan rasa curiga mulai merayapi pikirannya.</p>
+
+            <p>Sore harinya, Aria bertemu dengan sahabat Reza, Dika, yang datang tiba-tiba ke rumahnya. Wajah Dika serius dan sedikit cemas.</p>
+
+            <p>“Kau harus tahu, Aria. Ada sesuatu tentang Reza yang selama ini dia sembunyikan,” kata Dika dengan suara rendah.</p>
+
+            <p>Aria menatap Dika penuh tanda tanya. “Apa maksudmu?”</p>
+
+            <p>Dika menarik napas panjang. “Reza bukan hanya fotografer biasa. Dia punya masa lalu yang rumit, dan ada alasan kenapa dia sangat tertutup.”</p>
+
+            <p>Rasa ingin tahu dan ketakutan bercampur jadi satu di dada Aria.</p>
+
+            <p>Malamnya, Aria memutuskan untuk mencari tahu sendiri. Ia mulai menyelidiki lewat media sosial, bertanya pada kenalan Reza, dan menelusuri jejak masa lalunya.</p>
+
+            <p>Semakin dalam ia menggali, semakin banyak rahasia yang terungkap: Reza pernah terlibat dalam sebuah kecelakaan yang mengubah hidupnya dan meninggalkan luka emosional yang dalam. Ada juga rumor tentang hubungan yang gagal dan pengkhianatan yang membuatnya menutup diri.</p>
+
+            <p>Di sisi lain, Raka yang masih menyimpan perasaan, mencoba merajut kembali hubungan dengan Aria. Ia datang dengan sikap yang berbeda—lebih sabar, lebih pengertian. Namun Aria tahu, luka lama belum benar-benar sembuh.</p>
+
+            <p>Suatu malam, saat hujan turun deras, Aria menerima telepon dari Reza yang tiba-tiba muncul di depan pintu rumahnya.</p>
+
+            <p>“Aku tahu kau sedang mencari jawaban,” kata Reza dengan suara serak. “Aku ingin jujur, tapi aku juga takut kehilanganmu.”</p>
+
+            <p>Mereka berbicara panjang lebar di bawah rintik hujan yang membasahi jalanan. Reza membuka semua rahasia yang selama ini disimpannya, tentang masa lalunya, kesalahan yang dibuat, dan harapan untuk masa depan.</p>
+
+            <p>Aria merasa hatinya bergetar. Antara pengertian dan kebingungan, antara cinta dan ketakutan.</p>
+
+            <p>Konflik batin semakin dalam ketika Raka mengirim pesan terakhir: “Jika kau memilih Reza, aku akan pergi untuk selamanya.”</p>
+
+            <p>Aria harus mengambil keputusan yang paling berat dalam hidupnya—antara masa lalu yang pernah hangat atau masa depan yang penuh ketidakpastian.</p>
+
+            <p>Malam itu, hujan menjadi saksi bisu dari perjuangan hati yang bertaut, antara cinta, pengorbanan, dan keberanian untuk melangkah maju.</p>
+            
+            <div class="text-center mt-5">
+                <p class="text-muted small">---NEXT!!!!---</p>
+            </div>
+        </div>
+        
+    </main>
+
+    <div class="floating-buttons-container">
+        <button class="floating-btn" id="share-novel-btn" title="Bagikan Novel">
+            <i class="bi bi-share-fill"></i>
+        </button>
+        
+        <a href="#top" class="floating-btn" title="Daftar Isi/Atas">
+            <i class="bi bi-list-nested"></i>
+        </a>
+    </div>
+
+    <div class="chapter-nav-bar">
+        <div class="container d-flex justify-content-between">
+            <a href="novel3.html" class="nav-link-btn">
+                <i class="bi bi-arrow-left-circle-fill"></i> Bab 3: Badai dalam Hati
+            </a>
+            
+            <a href="novel5.html" class="nav-link-btn" aria-disabled="true">
+                Bab 5: Cahaya Setelah Padam <i class="bi bi-arrow-right-circle-fill"></i>
+            </a>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2025 Novel Estetik. Semua Hak Dilindungi. | Saat Hati Bertaut Di Antara Rintik Hujan</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle'); 
+            const shareBtn = document.getElementById('share-novel-btn');
+
+            // --- FUNGSI DARK MODE ---
+            if (themeToggle) {
+                
+                function updateToggleText(currentTheme) {
+                    if (currentTheme === 'dark-mode') {
+                        themeToggle.textContent = '🌙 Mode Gelap';
+                    } else {
+                        themeToggle.textContent = '☀️ Mode Terang';
+                    }
+                }
+
+                const savedTheme = localStorage.getItem('theme') || 'light-mode'; 
+                if (savedTheme === 'dark-mode') {
+                    document.body.classList.add('dark-mode');
+                }
+                updateToggleText(savedTheme);
+
+                themeToggle.addEventListener('click', function() {
+                    if (document.body.classList.contains('dark-mode')) {
+                        document.body.classList.remove('dark-mode');
+                        localStorage.setItem('theme', 'light-mode');
+                        updateToggleText('light-mode');
+                    } else {
+                        document.body.classList.add('dark-mode');
+                        localStorage.setItem('theme', 'dark-mode');
+                        updateToggleText('dark-mode');
+                    }
+                });
+            }
+
+            // --- FUNGSI SHARE NOVEL ---
+            if (shareBtn) {
+                shareBtn.addEventListener('click', async function() {
+                    const novelTitle = "Bayangan di Jendela Kaca - Bab 4: Rahasia yang Menyengat";
+                    const pageUrl = window.location.href; 
+                    
+                    if (navigator.share) {
+                        try {
+                            await navigator.share({
+                                title: novelTitle,
+                                text: 'Yuk baca Bab 4 novel "Bayangan di Jendela Kaca"!',
+                                url: pageUrl
+                            });
+                        } catch (error) {
+                            if (error.name !== 'AbortError') {
+                                console.error('Error saat berbagi (Share API):', error);
+                            }
+                        }
+                    } else {
+                        try {
+                            await navigator.clipboard.writeText(pageUrl);
+                            alert(`BERHASIL! Tautan "${novelTitle}" telah disalin ke clipboard.`);
+                        } catch (err) {
+                            alert(`Gagal menyalin. Silakan salin URL ini secara manual: ${pageUrl}`);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
