@@ -1,0 +1,565 @@
+/* ======================================= */
+/* 🌙 VARIABEL TEMA (DARK/LIGHT MODE) */
+/* ======================================= */
+:root {
+    /* Warna Umum */
+    --bg-main: linear-gradient(135deg, #f0e6ff 0%, #ffe6f0 50%, #e0f7fa 100%);
+    --bg-card: white;
+    --bg-header: #6a0dad;
+    --color-text: #4a4a4a;
+    --color-heading: #6a0dad;
+    --color-link: white;
+    --color-link-hover: #ffd700;
+    --color-author: #888;
+    --shadow-color: rgba(0, 0, 0, 0.15); 
+    --btn-toggle-bg: #ff8c00;
+    --btn-toggle-text: white;
+    --btn-read-bg: #ff8c00;
+    --btn-read-bg-hover: #ffa500;
+    --hero-bg-color: #f7e1ff;
+    
+    /* VARIABEL UNTUK EFEK BUKU TULIS (NOVEL) */
+    --novel-bg-image: url('https://www.transparenttextures.com/patterns/notebook-dark.png'); 
+    --novel-bg-color: #fffaf0; /* Warna dasar kertas kusam */
+    
+    /* VARIABEL UNTUK PUNGGUNG BUKU (INDEX CARD) */
+    --book-spine-light: #5d4037; /* Cokelat tua */
+    --book-spine-text: #fff8e1; /* Krem/Putih Gading */
+    
+    /* VARIABEL UNTUK FITUR BARU */
+    --separator-color: #d1b499; /* Warna untuk garis pemisah buku */
+    --share-btn-bg: #8a2be2; /* Warna tombol share (Biru Ungu) */
+}
+
+.dark-mode {
+    /* Warna Umum Dark Mode */
+    --bg-main: linear-gradient(135deg, #121212 0%, #1f1f1f 100%); 
+    --bg-card: #2c2c2c;
+    --bg-header: #212121;
+    --color-text: #e0e0e0;
+    --color-heading: #bb86fc;
+    --color-link: #cfcfcf;
+    --color-link-hover: #03dac6;
+    --color-author: #a0a0a0;
+    --shadow-color: rgba(0, 0, 0, 0.8);
+    --btn-toggle-bg: #bb86fc;
+    --btn-toggle-text: #121212;
+    --btn-read-bg: #03dac6;
+    --btn-read-bg-hover: #039c89;
+    --hero-bg-color: #333333;
+
+    /* VARIABEL UNTUK EFEK BUKU TULIS (NOVEL) */
+    --novel-bg-image: url('https://www.transparenttextures.com/patterns/notebook.png'); 
+    --novel-bg-color: #252525; /* Warna dasar buku tulis gelap */
+
+    /* VARIABEL UNTUK PUNGGUNG BUKU (INDEX CARD) */
+    --book-spine-light: #303030; /* Abu-abu sangat gelap */
+    --book-spine-text: #cfc4a5; /* Emas kusam/Krem gelap */
+    
+    /* VARIABEL UNTUK FITUR BARU */
+    --separator-color: #6a6a6a;
+    --share-btn-bg: #bb86fc; 
+}
+
+/* ======================================= */
+/* 🎨 ANIMASI DAN RESET */
+/* ======================================= */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Georgia', serif; 
+}
+
+body, header, .novel-card, .btn-theme-toggle, .hero-section, .reading-area, .chapter-nav-bar, .profile-card, .floating-btn {
+    transition: 0.5s background-color, 0.5s color, 0.5s box-shadow, 0.5s border-color, 0.5s transform;
+}
+
+body {
+    background: var(--bg-main);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite, fadeIn 0.8s ease-out; 
+    color: var(--color-text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+h2 {
+    color: var(--color-heading);
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+/* ======================================= */
+/* 🧭 HEADER DAN NAVIGASI */
+/* ======================================= */
+.navbar-custom {
+    background-color: var(--bg-header) !important;
+    box-shadow: 0 4px 8px var(--shadow-color) !important;
+    padding: 15px 20px;
+    position: sticky; 
+    top: 0;
+    z-index: 999;
+}
+
+.navbar-custom .navbar-brand {
+    color: white !important;
+    font-size: 1.8em;
+    letter-spacing: 2px;
+}
+
+.navbar-custom .nav-link {
+    color: var(--color-link) !important;
+    transition: color 0.3s;
+}
+
+.navbar-custom .nav-link:hover {
+    color: var(--color-link-hover) !important;
+}
+
+.btn-theme-toggle {
+    background-color: var(--btn-toggle-bg);
+    color: var(--btn-toggle-text);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    white-space: nowrap; 
+}
+
+/* ======================================= */
+/* 🌟 HERO SECTION (INDEX.HTML) */
+/* ======================================= */
+.hero-section {
+    background-color: var(--hero-bg-color);
+    color: var(--color-text);
+    padding: 50px 0;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--color-heading);
+}
+
+.hero-section h1 {
+    color: var(--color-heading);
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ======================================= */
+/* 📚 NOVEL GRID DAN CARD (INDEX.HTML) - EFEK PUNGGUNG BUKU */
+/* ======================================= */
+.novel-grid .row {
+    gap: 30px; 
+}
+
+.novel-card {
+    background-color: var(--bg-card);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    padding-bottom: 25px;
+    border: 1px solid rgba(138, 43, 226, 0.1);
+}
+
+.novel-card:hover {
+    transform: translateY(-8px) rotateZ(-0.5deg); 
+    box-shadow: 0 15px 30px var(--shadow-color), 0 0 15px rgba(106, 13, 173, 0.2); 
+}
+
+.card-title-aesthetic {
+    height: 200px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    
+    /* GANTI GRADIENT DENGAN WARNA BUKU KLASIK */
+    background: var(--book-spine-light); 
+    background-size: auto; 
+    animation: none; /* Hapus animasi */
+    
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Efek 3D */
+    padding: 20px;
+}
+
+.card-title-aesthetic h3 {
+    color: var(--book-spine-text); 
+    font-size: 1.6em;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4); 
+    padding: 0 10px;
+    letter-spacing: 1px;
+}
+
+.novel-card .author {
+    font-style: italic;
+    color: var(--color-author);
+    margin-bottom: 10px;
+}
+
+.novel-card .synopsis {
+    padding: 0 20px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    height: 40px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-read {
+    display: inline-block;
+    background-color: var(--btn-read-bg);
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+    border: none;
+}
+
+.btn-read:hover {
+    background-color: var(--btn-read-bg-hover);
+    transform: scale(1.05);
+}
+
+/* ======================================= */
+/* 🧑‍💻 PROFILE CARD (PROFIL.HTML) - (TIDAK BERUBAH) */
+/* ======================================= */
+.profile-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.profile-card {
+    background-color: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    padding: 40px;
+    text-align: center;
+    border: 2px solid var(--color-heading);
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid var(--color-link-hover);
+}
+
+.profile-card h1 {
+    color: var(--color-heading);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.profile-card h2 {
+    color: var(--color-author);
+    font-style: italic;
+    font-size: 1.2em;
+    margin-bottom: 25px;
+}
+
+.social-links a {
+    color: var(--color-heading);
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--btn-read-bg);
+}
+
+.bio-section {
+    margin-top: 30px;
+    text-align: left;
+    border-top: 1px solid var(--color-author);
+    padding-top: 20px;
+}
+.bio-section h3 {
+    color: var(--color-heading);
+    margin-bottom: 15px;
+}
+
+.novel-list-profile {
+    margin-top: 40px;
+    border-top: 1px solid var(--color-author);
+    padding-top: 30px;
+    text-align: left;
+}
+.novel-list-profile h3 {
+    color: var(--color-heading);
+    margin-bottom: 20px;
+}
+
+.novel-list-profile li a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+.novel-list-profile li a:hover {
+    color: var(--btn-read-bg);
+    text-decoration: underline;
+}
+
+.back-to-home {
+    text-align: center;
+    margin-top: 40px; 
+    margin-bottom: 50px;
+}
+
+.btn-back-aesthetic {
+    background-color: var(--bg-card); 
+    color: var(--color-heading);
+    border: 2px solid var(--color-heading);
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-back-aesthetic:hover {
+    background-color: var(--color-heading); 
+    color: white;
+    border-color: var(--color-heading);
+    transform: translateY(-3px) scale(1.02); 
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+/* ======================================= */
+/* 📖 AREA BACA NOVEL (EFEK BUKU TULIS & PERBAIKAN DARK MODE) */
+/* ======================================= */
+.reading-area {
+    /* Gaya LIGHT MODE Default */
+    background-image: var(--novel-bg-image);
+    background-color: var(--novel-bg-color); 
+    background-blend-mode: multiply; 
+    
+    color: var(--color-text); 
+    
+    max-width: 800px; 
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 8px; 
+    box-shadow: 0 10px 30px var(--shadow-color);
+    line-height: 1.8; 
+    font-size: 1.15em; 
+    
+    border: 1px solid var(--color-author);
+    transform: rotateZ(-0.3deg);
+    transition: all 0.5s ease-in-out; 
+}
+
+/* PERBAIKAN PRIORITAS DARK MODE */
+body.dark-mode .reading-area {
+    background-image: var(--novel-bg-image);
+    background-color: var(--novel-bg-color);
+    background-blend-mode: multiply;
+    color: var(--color-text); 
+}
+
+/* Memastikan elemen di dalamnya juga mengambil warna teks baru */
+body.dark-mode .reading-area h1, 
+body.dark-mode .reading-area h2, 
+body.dark-mode .reading-area p {
+    color: var(--color-text); 
+}
+
+.reading-area:hover {
+    transform: rotateZ(0deg) scale(1.005);
+    box-shadow: 0 15px 40px var(--shadow-color);
+}
+
+.reading-area h1 {
+    color: var(--color-heading);
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.reading-area .author, .reading-area .chapter-title {
+    color: var(--color-author);
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.reading-area p {
+    margin-bottom: 1.5em; 
+    text-align: justify; 
+}
+
+/* Update Gaya Garis Pemisah (Artistik) */
+.reading-area hr {
+    margin: 30px auto;
+    width: 60%;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, 
+        transparent, 
+        var(--separator-color) 40%, 
+        var(--separator-color) 60%, 
+        transparent);
+    border-radius: 50%;
+}
+
+
+/* ======================================= */
+/* ◀️ NAVIGASI BAB (CHAPTER NAVIGATION) */
+/* ======================================= */
+.chapter-nav-bar {
+    background-color: var(--bg-header);
+    padding: 20px 0; 
+    margin-top: 40px;
+    box-shadow: 0 -4px 15px var(--shadow-color); 
+}
+
+.chapter-nav-bar .nav-link-btn {
+    background-color: var(--btn-read-bg);
+    color: white;
+    padding: 12px 35px; 
+    border-radius: 40px; 
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; 
+    
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.chapter-nav-bar .nav-link-btn:not(.disabled):hover {
+    background-color: var(--btn-read-bg-hover);
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px var(--btn-read-bg-hover), 
+                0 0 5px var(--btn-read-bg-hover); 
+}
+
+.chapter-nav-bar .disabled {
+    background-color: var(--color-author); 
+    color: var(--bg-card); 
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none !important;
+    box-shadow: none; 
+}
+
+.chapter-nav-bar .nav-link-btn i {
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+/* ======================================= */
+/* 🚀 ANIMASI TRANSISI HALAMAN */
+/* ======================================= */
+#page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-header); 
+    z-index: 9999; 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.5s ease-in-out; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#page-transition-overlay.is-active {
+    opacity: 1; 
+    pointer-events: auto; 
+}
+
+.transition-text {
+    color: white;
+    font-size: 2em;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#page-transition-overlay.is-active .transition-text {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ======================================= */
+/* 🔗 TOMBOL SHARE NOVEL & Navigasi Cepat (Floating) */
+/* ======================================= */
+.floating-buttons-container {
+    position: fixed;
+    bottom: 120px; 
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.floating-btn {
+    background-color: var(--share-btn-bg);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2em;
+    border: none;
+}
+
+.floating-btn:hover {
+    background-color: var(--color-heading); 
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* ======================================= */
+/* 🦶 FOOTER */
+/* ======================================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--bg-header);
+    color: white;
+    margin-top: 40px;
+}
