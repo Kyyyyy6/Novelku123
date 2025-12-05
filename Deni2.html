@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Novel Aesthetic</title>
+    <meta name="description" content="Novel Cinta Di Antara Bintang - Bab 2: Jejak-jejak Cahaya di Malam Itu. Kisah romansa sci-fi yang penuh misteri antar galaksi.">
+
+    <meta property="og:title" content="Bab 2: Jejak-jejak Cahaya di Malam Itu - Cinta Di Antara Bintang">
+    <meta property="og:description" content="Novel Cinta Di Antara Bintang - Bab 2: Jejak-jejak Cahaya di Malam Itu. Kisah romansa sci-fi yang penuh misteri antar galaksi">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="URL_LENGKAP_HALAMAN_INI"> 
+    <meta property="og:image" content="URL_GAMBAR_COVER_ATAU_THUMBNAIL"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bab 2: Jejak-jejak Cahaya di Malam Itu - Cinta Di Antara Bintang">
+    <meta name="twitter:description" content="Novel Cinta Di Antara Bintang - Bab 2: Jejak-jejak Cahaya di Malam Itu. Kisah romansa sci-fi yang penuh misteri antar galaksi">
+    <meta name="twitter:image" content="URL_GAMBAR_COVER_ATAU_THUMBNAIL"> 
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="favicon.png" type="image/png">
+    
+    <style>
+        /* Variabel Warna (Disesuaikan dari Bab 3) */
+        :root {
+            --color-star-gold: #f7c948;
+            --color-night-purple: #1a0b3d;
+            --color-gradient-start: #2c003e;
+            --color-gradient-end: #13082e;
+            --color-bg-light: #fdf6e3;
+            --color-text-light: #3b2e00;
+        }
+
+        /* Mode gelap default */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+            color: #f0e7db;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 10px rgb(0 0 0 / 0.7);
+        }
+
+        .navbar-custom .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.7rem;
+            color: var(--color-star-gold);
+            text-shadow: 0 0 8px #f7c94899;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-custom .navbar-brand i {
+            transform: rotate(-15deg);
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-custom .navbar-brand:hover i {
+            transform: rotate(0deg) scale(1.2);
+        }
+
+        .navbar-custom .nav-link {
+            color: #dcdcdc;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            letter-spacing: 0.05em;
+        }
+
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: var(--color-star-gold);
+            text-shadow: 0 0 6px var(--color-star-gold);
+        }
+
+        /* Toggle mode button - Gaya dasar */
+        #toggle-mode-btn, #toggle-mode-btn-mobile { 
+            background: none;
+            border: none;
+            color: var(--color-star-gold);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem; 
+        }
+        #toggle-mode-btn:hover, #toggle-mode-btn-mobile:hover {
+            color: #fff;
+        }
+        
+        /* Style untuk item navbar yang berisi tombol toggle */
+        .nav-item-toggle {
+            text-align: right;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 0;
+        }
+        
+        @media (min-width: 992px) {
+            .nav-item-toggle {
+                display: none; 
+            }
+        }
+
+
+        /* Toggler Icon Background (Modifikasi untuk Mode Gelap) */
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28247, 201, 72, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+
+        main.container {
+            flex: 1;
+            max-width: 720px;
+            margin-top: 3rem;
+            margin-bottom: 4rem;
+            /* opacity: 0; Hapus dari main container agar terlihat lebih cepat */
+        }
+
+        .reading-area {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgb(247 201 72 / 0.3);
+            border: 1px solid rgba(247, 201, 72, 0.3);
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        .chapter-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: var(--color-star-gold);
+            margin-bottom: 0.8rem; /* Disesuaikan agar tidak terlalu jauh dari info penulis */
+            text-align: center;
+            text-shadow: 0 0 8px #f7c948cc;
+        }
+        
+        .author-info {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #b3a763;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .chapter-title small {
+            display: block;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #b3a763;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.08em;
+        }
+
+        .reading-area p {
+            line-height: 1.7;
+            font-size: 1.15rem;
+            margin-bottom: 1.3rem;
+            text-align: justify;
+            color: #eee8cc;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Style untuk Blockquote/Kutipan */
+        blockquote.quote {
+            border-left: 6px solid var(--color-star-gold);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: rgba(247, 201, 72, 0.1);
+            border-radius: 4px;
+            font-style: italic;
+            color: #f0e7db;
+            box-shadow: 0 2px 10px rgba(247, 201, 72, 0.1);
+        }
+        blockquote.quote p {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            line-height: 1.6;
+            color: inherit;
+        }
+
+        .scene-break {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--color-star-gold);
+            margin: 2.5rem 0;
+            opacity: 0.6;
+        }
+
+
+        .chapter-nav-bar {
+            background: linear-gradient(90deg, #f7c948, #dab644);
+            border-radius: 40px;
+            max-width: 720px;
+            margin: 0 auto 3rem auto;
+            box-shadow: 0 4px 12px rgb(247 201 72 / 0.6);
+            padding: 8px 15px; /* Tambahkan padding agar navigasi tidak terlalu tipis */
+        }
+
+        .chapter-nav-bar a.nav-link-btn { /* Spesifikasi kelas ditambahkan */
+            color: #3b2e00;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            padding: 12px 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 30px;
+        }
+
+        .chapter-nav-bar a.nav-link-btn:hover:not(.disabled) {
+            background-color: #fff5d1;
+            color: #b37f00;
+            box-shadow: 0 0 12px #f7c948bb;
+        }
+
+        .chapter-nav-bar a.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: default;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+            color: #bbb;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            user-select: none;
+            transition: color 0.5s ease;
+            position: relative; 
+        }
+
+        /* CSS untuk tombol Kembali ke Atas */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none; 
+            background-color: var(--color-star-gold);
+            color: var(--color-night-purple);
+            border-radius: 50%;
+            padding: 0;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            font-size: 1.5rem;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+
+        #back-to-top:hover {
+            background-color: #fff;
+            color: var(--color-gradient-start);
+        }
+
+        /* ==== SHARE BUTTONS BEAUTIFIED (DARK MODE) ==== */
+        .share-buttons {
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px !important;
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .share-title {
+            color: var(--color-star-gold);
+            font-weight: 700;
+            text-shadow: 0 0 10px #f7c948aa;
+            margin-bottom: 1rem;
+        }
+
+        .share-grid {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            width: 45px; /* Disesuaikan agar lebih kecil dan rapi */
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            border-radius: 50%;
+            border: none; /* Hapus border agar warna solid */
+            background: rgba(255, 255, 255, 0.1); /* Hapus background default */
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .share-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 15px rgba(247, 201, 72, 0.7);
+        }
+        /* Specific platform color accents */
+        .share-wa { background: #25D366; }
+        .share-fb { background: #1877F2; }
+        .share-tw { background: #000; }
+        .share-copy { background: var(--color-star-gold); color: var(--color-night-purple); }
+
+
+        /* --- FADE IN ANIMATION --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(15px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        /* --- LIGHT MODE --- */
+        body.light-mode {
+            background: var(--color-bg-light);
+            color: var(--color-text-light);
+        }
+        body.light-mode header {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+        }
+        body.light-mode .navbar-custom .navbar-brand {
+            color: #b37f00;
+            text-shadow: none;
+        }
+        body.light-mode .navbar-custom .nav-link {
+            color: #6b5e00;
+        }
+        body.light-mode .navbar-custom .nav-link:hover,
+        body.light-mode .navbar-custom .nav-link.active {
+            color: var(--color-star-gold);
+            text-shadow: none;
+        }
+        
+        /* Toggler Icon Background (Mode Terang) */
+        body.light-mode .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2859, 46, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        body.light-mode .reading-area {
+            background: #fff8dc;
+            color: #4a3c00;
+            box-shadow: 0 0 15px rgb(183 127 0 / 0.4);
+            border-color: #d4b94a;
+        }
+        body.light-mode .reading-area p {
+            color: #4a3c00;
+            text-shadow: none;
+        }
+        body.light-mode .chapter-title {
+            color: #b37f00;
+            text-shadow: none;
+        }
+        body.light-mode .author-info {
+             color: #6b5e00;
+        }
+        
+        body.light-mode blockquote.quote {
+            border-left: 6px solid #d4b94a;
+            background: #fff5d1;
+            color: #6b5e00;
+            box-shadow: 0 2px 10px rgba(183, 127, 0, 0.2);
+        }
+
+        body.light-mode .chapter-nav-bar {
+            background: linear-gradient(90deg, #dab644, #f7c948);
+            box-shadow: 0 4px 12px rgb(183 127 0 / 0.6);
+        }
+        body.light-mode .chapter-nav-bar a.nav-link-btn {
+            color: #4a3c00;
+        }
+        body.light-mode footer {
+            color: #6b5e00;
+            border-top-color: #d4b94a;
+        }
+        body.light-mode #toggle-mode-btn, body.light-mode #toggle-mode-btn-mobile {
+            color: #b37f00;
+        }
+        body.light-mode #toggle-mode-btn:hover, body.light-mode #toggle-mode-btn-mobile:hover {
+            color: #6b5e00;
+        }
+        
+        body.light-mode #back-to-top {
+            background-color: #b37f00;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        body.light-mode #back-to-top:hover {
+            background-color: var(--color-star-gold);
+        }
+
+        /* SHARE BUTTONS Light Mode Adjustments */
+        body.light-mode .share-buttons {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        body.light-mode .share-title {
+            color: #b37f00;
+            text-shadow: none;
+        }
+        body.light-mode .share-copy { background: #b37f00; color: #fff; }
+        body.light-mode .share-copy:hover { background: var(--color-star-gold); color: #4a3c00; }
+        body.light-mode .share-btn:hover {
+            box-shadow: 0 0 15px rgba(183, 127, 0, 0.5);
+        }
+
+    </style>
+</head>
+<body id="top"> 
+    <header>
+        <nav class="navbar navbar-expand-lg sticky-top navbar-custom navbar-dark px-3">
+            <div class="container-fluid container d-flex align-items-center justify-content-between">
+                <a class="navbar-brand" href="index-novel2.html" aria-label="Beranda Novel Cinta Di Antara Bintang">
+                    
+                </a>
+                
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span> 
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"> Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="daftar-bab.html">Daftar Bab</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Kategori</a>
+                        </li>                             
+                        <li class="nav-item">
+                            <a class="nav-link" href="profil.html">Profil Penulis</a>
+                        </li>
+                        <li class="nav-item d-none d-lg-block">
+                             <button
+                                id="toggle-mode-btn"
+                                aria-label="Toggle mode gelap terang"
+                                title="Toggle mode gelap terang"
+                                type="button"
+                            >
+                                <i class="bi bi-moon-stars-fill"></i>
+                            </button>
+                        </li>
+                        <li class="nav-item nav-item-toggle">
+                            <button
+                                id="toggle-mode-btn-mobile"
+                                aria-label="Toggle mode gelap terang"
+                                title="Toggle mode gelap terang"
+                                type="button"
+                            >
+                                <i class="bi bi-moon-stars-fill"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <article
+            class="reading-area"
+            tabindex="0"
+            aria-label="Isi Bab 2 Novel Cinta Di Antara Bintang"
+        >
+            <h2 class="chapter-title">
+                <small>Cinta Di Antara Bintang</small>
+                Bab 2: Jejak-jejak Cahaya di Malam Itu
+            </h2>
+             <div class="author-info fade-in">Karya: Penulis D</div>
+
+            <p class="fade-in">
+                Malam kedua setelah Deni pulang, udara di kota kecil itu terasa lebih hangat, meskipun embun mulai membasahi daun-daun di taman. Mela duduk di bangku taman yang sama di mana dulu ia dan Deni sering menghabiskan waktu berbicara sampai bintang-bintang redup digantikan cahaya fajar. Tapi malam ini berbeda. Ada sesuatu di dalam dirinya yang membuat setiap detik terasa lebih berarti.
+            </p>
+
+            <p class="fade-in">
+                Deni berdiri di sampingnya, menatap langit yang berhiaskan berjuta bintang. Namun, matanya tak pernah lepas dari wajah Mela, yang terlihat seperti bidadari kecil di bawah rembulan.
+            </p>
+            
+            <p class="fade-in">
+                “Kamu masih suka dengar cerita tentang bintang jatuh?” tanya Deni tiba-tiba.
+            </p>
+
+            <p class="fade-in">
+                Mela tersenyum dan mengangguk. “Dulu kamu sering cerita itu. Katamu, kalau kita berdua melihat bintang jatuh dan sama-sama membuat permintaan, permintaan itu pasti terkabul.”
+            </p>
+            
+            <p class="fade-in">
+                Deni tersenyum hangat, “Masih percaya?”
+            </p>
+
+            <blockquote class="quote fade-in">
+                <p>Mela menatap langit, berharap bisa melihat satu bintang jatuh malam ini. “Kadang, aku berharap aku bisa menangkap satu untuk kita berdua.”</p>
+            </blockquote>
+
+            <div class="scene-break fade-in">***</div>
+
+            <section id="janji-bintang-jatuh">
+                <h3 class="chapter-title fade-in" style="font-size: 1.5rem; margin-bottom: 2rem;">Detak Kosmik di Keheningan</h3>
+                <p class="fade-in">
+                    Deni memegang tangan Mela pelan, membuatnya tersentak sedikit tapi kemudian membiarkan dirinya merasakan sentuhan hangat itu. “Aku juga punya permintaan,” ucapnya lembut.
+                </p>
+                <p class="fade-in">
+                    Mela menoleh dan menatap matanya yang jernih dan penuh harap. “Apa itu?”
+                </p>
+                <p class="fade-in">
+                    Deni menarik nafas panjang, **“Aku ingin bisa selalu ada untuk kamu, melewati segala badai dan malam gelap.”**
+                </p>
+                <p class="fade-in">
+                    Mela merasakan dadanya sesak, tapi juga hangat. **“Aku juga,”** jawabnya dengan suara pelan tapi penuh makna.
+                </p>
+                <p class="fade-in">
+                    Sejenak, mereka diam, hanya suara jangkrik dan angin malam yang menemani. Di bawah cahaya bintang, dua hati yang dulu terpisah kini perlahan menyatu kembali.
+                </p>
+                <p class="fade-in">
+                    “Tahu gak,” kata Deni sambil tersenyum malu, “aku pernah takut kalau kamu nggak ingat aku lagi. Tapi ternyata kamu masih sama… bahkan lebih indah dari yang kuingat.”
+                </p>
+                <p class="fade-in">
+                    Mela tersipu dan menunduk, “Aku nggak pernah lupa, Deni. Bahkan saat kamu jauh, aku sering menulis surat buat kamu. Tapi aku nggak pernah kirim.”
+                </p>
+                <p class="fade-in">
+                    Deni terkejut, “Kenapa?”
+                </p>
+                <p class="fade-in">
+                    “Aku takut kalau kamu nggak akan membacanya. Aku juga takut kita berubah terlalu jauh,” jawab Mela jujur.
+                </p>
+                <p class="fade-in">
+                    Deni menggenggam tangannya lebih erat, “Aku di sini sekarang. Kita punya kesempatan buat memulai lagi.”
+                </p>
+                <p class="fade-in">
+                    Mela mengangkat wajahnya, menatap Deni dengan mata yang berkaca-kaca. **“Aku mau, Deni. Aku mau mencoba.”**
+                </p>
+            </section>
+            
+            <p class="fade-in">
+                Mereka tertawa kecil, kemudian Deni mengeluarkan sebuah benda kecil dari sakunya — sebuah kalung dengan **liontin berbentuk bintang kecil berkilau**.
+            </p>
+            
+            <p class="fade-in">
+                “Ini,” katanya, “untuk kamu. **Sebuah janji dari aku, bahwa aku akan selalu menjadi bintang yang menjaga kamu di malam gelap.”**
+            </p>
+            
+            <p class="fade-in">
+                Mela menerima kalung itu dengan tangan gemetar. “Terima kasih, Deni. Ini akan selalu kuingat.”
+            </p>
+            
+            <p class="fade-in">
+                Mereka berdua duduk lebih dekat, menikmati keheningan malam dan kehangatan yang terpancar dari sentuhan tangan mereka. Di bawah ratusan bintang yang bersinar, cinta mereka yang dulu hilang kini mulai tumbuh dengan cahaya yang jauh lebih terang. Malam itu, Mela tahu bahwa perjalanan cinta mereka baru saja dimulai. Dan di antara bintang-bintang itu, ada sebuah **janji abadi** yang terpatri di hati mereka berdua.
+            </p>
+            
+            </article>
+    </main>
+
+    <nav class="chapter-nav-bar text-center py-4" aria-label="Navigasi Bab"> 
+        <div class="container d-flex justify-content-between">
+            <a href="Deni1.html" class="nav-link-btn" aria-label="Bab Sebelumnya"> 
+                <i class="bi bi-arrow-left-circle-fill"></i> Sebelumnya
+            </a>
+
+            <a href="Deni3.html" class="nav-link-btn" aria-label="Bab Selanjutnya">
+                Selanjutnya <i class="bi bi-arrow-right-circle-fill"></i>
+            </a>
+        </div>
+    </nav>
+
+    <footer>
+        &copy; 2025 Cinta Di Antara Bintang. Semua hak cipta dilindungi.
+        <a id="back-to-top" href="#top" aria-label="Kembali ke atas" title="Kembali ke Atas">
+            <i class="bi bi-arrow-up-circle-fill"></i>
+        </a>
+
+        <div class="share-buttons mt-5 text-center" aria-label="Bagikan halaman ini">
+            <h4 class="share-title">Bagikan Halaman Ini</h4>
+
+            <div class="share-grid">
+                <a href="#" id="share-wa" class="share-btn share-wa" aria-label="Bagikan ke WhatsApp">
+                    <i class="bi bi-whatsapp"></i>
+                </a>
+
+                <a href="#" id="share-fb" class="share-btn share-fb" aria-label="Bagikan ke Facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+
+                <a href="#" id="share-tw" class="share-btn share-tw" aria-label="Bagikan ke Twitter/X">
+                    <i class="bi bi-twitter-x"></i>
+                </a>
+
+                <button id="share-copy" class="share-btn share-copy" aria-label="Salin tautan halaman ini" title="Salin tautan">
+                    <i class="bi bi-link-45deg"></i>
+                </button>
+            </div>
+        </div>
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+        // Data yang akan dibagi
+        const shareTitle = document.title;
+        const shareUrl = window.location.href;
+        const shareText = `Baca ${shareTitle} dari novel "Cinta Di Antara Bintang".`;
+
+        // Dark Mode toggle functions
+        const btns = document.querySelectorAll('#toggle-mode-btn, #toggle-mode-btn-mobile');
+        const body = document.body;
+
+        function setIcon(isLight) {
+            const iconClass = isLight ? 'bi-sun-fill' : 'bi-moon-stars-fill';
+            const title = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+            
+            btns.forEach(btn => {
+                const icon = btn.querySelector('i');
+                icon.className = `bi ${iconClass}`;
+                btn.title = title;
+            });
+        }
+
+        function initializeTheme() {
+            const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+            const savedMode = localStorage.getItem('theme-mode');
+
+            let isLightMode = false;
+            if (savedMode === 'light' || (!savedMode && prefersLight)) {
+                isLightMode = true;
+            }
+            
+            if (isLightMode) {
+                 body.classList.add('light-mode');
+            }
+            setIcon(isLightMode);
+            
+            initializeFadeInAnimation();
+            scrollFunction(); 
+            initializeShareButtons(); 
+        }
+
+        btns.forEach(btn => {
+             btn.addEventListener('click', () => {
+                body.classList.toggle('light-mode');
+                const isLightMode = body.classList.contains('light-mode');
+                setIcon(isLightMode);
+                localStorage.setItem('theme-mode', isLightMode ? 'light' : 'dark');
+            });
+        });
+        
+        // --- LOGIKA TOMBOL SHARE ---
+        function initializeShareButtons() {
+            // WhatsApp
+            document.getElementById('share-wa').addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)} ${encodeURIComponent(shareUrl)}`, '_blank');
+            });
+
+            // Facebook
+            document.getElementById('share-fb').addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`, '_blank');
+            });
+
+            // Twitter (X)
+            document.getElementById('share-tw').addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`, '_blank');
+            });
+
+            // Copy Link
+            document.getElementById('share-copy').addEventListener('click', async () => {
+                try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                         await navigator.clipboard.writeText(shareUrl);
+                         alert('Link halaman telah disalin ke clipboard!');
+                    } else {
+                        prompt("Salin tautan ini secara manual:", shareUrl);
+                    }
+                   
+                } catch (err) {
+                    alert('Gagal menyalin link: ' + err);
+                }
+            });
+        }
+        // --- END LOGIKA TOMBOL SHARE ---
+
+
+        // Back to Top functionality
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        }
+        
+        // Fade-In Animation Initialization
+        function initializeFadeInAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            let delay = 300; // Mulai delay sedikit lebih cepat
+            const delayIncrement = 120; // Waktu antar paragraf
+
+            elements.forEach((el, index) => {
+                el.style.animationDelay = `${delay}ms`;
+                delay += delayIncrement;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeTheme);
+    </script>
+</body>
+</html>
