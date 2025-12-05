@@ -1,0 +1,71 @@
+/* 🌟 KODE ESTETIK TEMA COSMIC NIGHT/STARLIGHT 🌟 */
+
+/* Variabel CSS */
+:root {
+    --bg-dark-space: #080C14; /* Biru gelap/Hitam luar angkasa */
+    --color-star-gold: #FFD700; /* Emas bintang untuk aksen */
+    --color-text-light: #E0E0E0; /* Teks terang */
+    --color-heading: #B0C4DE; /* Biru muda/Perak untuk heading */
+    --color-link: #6495ED; /* Biru langit untuk link */
+    --shadow-subtle: rgba(255, 255, 255, 0.05); 
+}
+
+body {
+    background-color: var(--bg-dark-space);
+    color: var(--color-text-light);
+    font-family: 'Georgia', serif;
+    min-height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar-custom {
+    background-color: rgba(16, 20, 28, 0.9); /* Sedikit transparan */
+    box-shadow: 0 2px 10px var(--shadow-subtle);
+}
+.navbar-custom .nav-link, .navbar-custom .navbar-brand {
+    color: var(--color-star-gold) !important;
+}
+
+/* Reading Area Styling */
+.reading-area {
+    background-color: var(--bg-dark-space);
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.chapter-title {
+    color: var(--color-star-gold);
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--shadow-subtle);
+}
+.chapter-title small {
+    color: var(--color-heading);
+    display: block;
+    font-size: 0.5em;
+}
+
+/* Paragraph Styling */
+.reading-area p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+/* Navigation Buttons */
+.nav-link-btn {
+    background-color: var(--color-star-gold);
+    color: var(--bg-dark-space) !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: bold;
+}
+.nav-link-btn:hover {
+    background-color: #E6B800;
+    color: var(--bg-dark-space) !important;
+    transform: translateY(-2px);
+}
